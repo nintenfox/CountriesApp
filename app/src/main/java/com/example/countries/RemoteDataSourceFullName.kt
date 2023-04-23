@@ -8,7 +8,7 @@ import retrofit2.http.Path
 
 interface RestCountriesApiFull {
     @GET("name/{name}?fullText=true")
-    suspend fun getCountryByName(@Path("name") cityName: String): List<Country>
+    suspend fun getCountryByName(@Path("name") countryName: String): List<Country>
 }
 
 var retrofitFull = Retrofit.Builder()

@@ -5,7 +5,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface RestCountriesApiRus {
+interface RestCountriesApiTranslated {
     @GET("translation/{translation}")
     suspend fun getCountryByTranslation(@Path("translation") cityName: String): List<Country>
 }
@@ -16,4 +16,4 @@ var retrofitRus = Retrofit.Builder()
     .build()
 
 
-var restCountriesApiRus = retrofitRus.create(RestCountriesApiRus::class.java)
+var restCountriesApiTranslated = retrofitRus.create(RestCountriesApiTranslated::class.java)

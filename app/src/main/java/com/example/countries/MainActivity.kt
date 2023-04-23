@@ -1,14 +1,12 @@
 package com.example.countries
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.bumptech.glide.Glide
 import com.example.countries.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
 import java.net.UnknownHostException
@@ -22,11 +20,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // AutoComplete
-        /*val countriesArray = resources.getStringArray(R.array.countries_array)
-        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, countriesArray)
-        binding.editTextCountryName.setAdapter(adapter)*/
 
         // Enter key
         binding.editTextCountryName.setOnKeyListener { _, keyCode, event ->
@@ -54,18 +47,16 @@ class MainActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 try {
-                    val countries = restCountriesApiRus.getCountryByTranslation(countryName)
+                    val countries = restCountriesApiFull.getCountryByName(countryName)
                     val country = countries[0]
-                    Glide.with(this@MainActivity)
-                        .load(country.flagUrl)
-                        .into(binding.imageView)
 
                     binding.textViewCountryName.text = nameConvert(country.name)
                     binding.textViewCapitalName.text = capitalConvert(country.capital)
                     binding.textViewPopulation.text = numberConvert(country.population)
                     binding.textViewLanguage.text = languageConvert(country.languages)
                     binding.textViewArea.text = numberConvert(country.area)
-                    binding.textViewCallingCode.text = callingCodeConvert(country.callingCodes)
+                    val url = flagConvert(country.flags)
+                    loadSvg(binding.imageView, url)
 
                     binding.progressBar.visibility = View.GONE // Hide progress bar
                     binding.resultLayout.visibility = View.VISIBLE
@@ -77,47 +68,36 @@ class MainActivity : AppCompatActivity() {
                     binding.statusLayout.visibility = View.VISIBLE
                 } catch (e: Exception) {
                     try {
-                        val countries = restCountriesApiFull.getCountryByName(countryName)
+                        val countries = restCountriesApi.getCountryByName(countryName)
                         val country = countries[0]
-                        Glide.with(this@MainActivity)
-                            .load(country.flagUrl)
-                            .into(binding.imageView)
 
                         binding.textViewCountryName.text = nameConvert(country.name)
                         binding.textViewCapitalName.text = capitalConvert(country.capital)
                         binding.textViewPopulation.text = numberConvert(country.population)
                         binding.textViewLanguage.text = languageConvert(country.languages)
                         binding.textViewArea.text = numberConvert(country.area)
-                        binding.textViewCallingCode.text = callingCodeConvert(country.callingCodes)
-                        //loadSvg(binding.imageView, country.flag)
+                        val url = flagConvert(country.flags)
+                        loadSvg(binding.imageView, url)
 
-                        binding.progressBar.visibility = View.GONE // Hide progress bar
-                        binding.resultLayout.visibility = View.VISIBLE
-                    } catch (e: UnknownHostException) {
-                        binding.statusTextView.text = "Could not connect to server"
-                        binding.statusImageView.setImageResource(R.drawable.baseline_error_24)
                         binding.progressBar.visibility = View.GONE
-                        binding.resultLayout.visibility = View.INVISIBLE
-                        binding.statusLayout.visibility = View.VISIBLE
+                        binding.resultLayout.visibility = View.VISIBLE
+
                     } catch (e: Exception) {
                         try {
-                            val countries = restCountriesApi.getCountryByName(countryName)
+                            val countries = restCountriesApiTranslated.getCountryByTranslation(countryName)
                             val country = countries[0]
-                            Glide.with(this@MainActivity)
-                                .load(country.flagUrl)
-                                .into(binding.imageView)
 
                             binding.textViewCountryName.text = nameConvert(country.name)
                             binding.textViewCapitalName.text = capitalConvert(country.capital)
                             binding.textViewPopulation.text = numberConvert(country.population)
                             binding.textViewLanguage.text = languageConvert(country.languages)
                             binding.textViewArea.text = numberConvert(country.area)
-                            binding.textViewCallingCode.text =
-                                callingCodeConvert(country.callingCodes)
-                            //binding.imageView.setImageResource(country.flag)
+                            val url = flagConvert(country.flags)
+                            loadSvg(binding.imageView, url)
 
-                            binding.progressBar.visibility = View.GONE
+                            binding.progressBar.visibility = View.GONE // Hide progress bar
                             binding.resultLayout.visibility = View.VISIBLE
+
                         } catch (e: Exception) {
                             binding.statusTextView.text = "Country not found"
                             binding.statusImageView.setImageResource(R.drawable.baseline_error_24)

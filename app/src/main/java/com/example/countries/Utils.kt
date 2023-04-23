@@ -7,27 +7,26 @@ import coil.decode.SvgDecoder
 import coil.load
 import coil.request.ImageRequest
 import java.text.NumberFormat
-import java.util.*
+import java.util.Locale
 
-fun nameConvert(name: List<String>): String {
-    return name[0]
+fun nameConvert(name: Name): String {
+    return name.common
 }
 
 fun capitalConvert(capital: List<String>): String {
     return capital[0]
 }
-fun languageConvert(languages: List<Language>): String {
-        return languages.joinToString { it.name }
+fun languageConvert(languages: Map<String, String>): String {
+        return languages.values.joinToString { it }
     }
 
 fun numberConvert(number: Long): String {
     return NumberFormat.getInstance(Locale.FRANCE).format(number)
 }
 
-fun callingCodeConvert(callingCodes: List<String>): String {
-    return "+" + callingCodes[0]
+fun flagConvert(flags: Flag): String {
+    return flags.svg
 }
-
 suspend fun loadSvg(imageView: ImageView, url: String) {
     if (url.lowercase(Locale.ENGLISH).endsWith("svg")) {
         val imageLoader = ImageLoader.Builder(imageView.context)
