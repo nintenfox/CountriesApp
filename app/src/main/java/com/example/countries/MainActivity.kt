@@ -55,8 +55,7 @@ class MainActivity : AppCompatActivity() {
                     binding.textViewPopulation.text = numberConvert(country.population)
                     binding.textViewLanguage.text = languageConvert(country.languages)
                     binding.textViewArea.text = numberConvert(country.area)
-                    val url = flagConvert(country.flags)
-                    loadSvg(binding.imageView, url)
+                    loadSvg(binding.imageView, flagConvert(country.flags))
 
                     binding.progressBar.visibility = View.GONE // Hide progress bar
                     binding.resultLayout.visibility = View.VISIBLE
@@ -76,8 +75,7 @@ class MainActivity : AppCompatActivity() {
                         binding.textViewPopulation.text = numberConvert(country.population)
                         binding.textViewLanguage.text = languageConvert(country.languages)
                         binding.textViewArea.text = numberConvert(country.area)
-                        val url = flagConvert(country.flags)
-                        loadSvg(binding.imageView, url)
+                        loadSvg(binding.imageView, flagConvert(country.flags))
 
                         binding.progressBar.visibility = View.GONE
                         binding.resultLayout.visibility = View.VISIBLE
@@ -92,8 +90,7 @@ class MainActivity : AppCompatActivity() {
                             binding.textViewPopulation.text = numberConvert(country.population)
                             binding.textViewLanguage.text = languageConvert(country.languages)
                             binding.textViewArea.text = numberConvert(country.area)
-                            val url = flagConvert(country.flags)
-                            loadSvg(binding.imageView, url)
+                            loadSvg(binding.imageView, flagConvert(country.flags))
 
                             binding.progressBar.visibility = View.GONE // Hide progress bar
                             binding.resultLayout.visibility = View.VISIBLE
