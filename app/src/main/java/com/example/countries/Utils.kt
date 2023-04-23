@@ -16,9 +16,10 @@ fun nameConvert(name: Name): String {
 fun capitalConvert(capital: List<String>): String {
     return capital[0]
 }
+
 fun languageConvert(languages: Map<String, String>): String {
-        return languages.values.joinToString { it }
-    }
+    return languages.values.joinToString { it }
+}
 
 fun numberConvert(number: Long): String {
     return NumberFormat.getInstance(Locale.FRANCE).format(number)
@@ -27,6 +28,7 @@ fun numberConvert(number: Long): String {
 fun flagConvert(flags: Flag): String {
     return flags.svg
 }
+
 suspend fun loadSvg(imageView: ImageView, url: String) {
     if (url.lowercase(Locale.ENGLISH).endsWith("svg")) {
         val imageLoader = ImageLoader.Builder(imageView.context)
