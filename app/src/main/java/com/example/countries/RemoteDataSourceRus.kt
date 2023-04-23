@@ -5,16 +5,15 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-
-interface RestCountriesApiFull {
-    @GET("name/{name}?fullText=true")
-    suspend fun getCountryByName(@Path("name") cityName: String): List<Country>
+interface RestCountriesApiRus {
+    @GET("translation/{translation}")
+    suspend fun getCountryByTranslation(@Path("translation") cityName: String): List<Country>
 }
 
-var retrofitFull = Retrofit.Builder()
+var retrofitRus = Retrofit.Builder()
     .baseUrl("http://restcountries.com/v3.1/")
     .addConverterFactory(MoshiConverterFactory.create())
     .build()
 
 
-var restCountriesApiFull = retrofitFull.create(RestCountriesApiFull::class.java)
+var restCountriesApiRus = retrofitRus.create(RestCountriesApiRus::class.java)

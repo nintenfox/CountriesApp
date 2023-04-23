@@ -1,12 +1,12 @@
 package com.example.countries
 
 data class Country(
-    val name: String,
-    val capital: String,
+    val name: List<String>,
+    val capital: List<String>,
     val population: Long,
     val area: Long,
     val languages: List<Language>,
-    val flag: String,
+    val flagUrl: String,
     val callingCodes: List<String>
 )
 

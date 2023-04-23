@@ -9,6 +9,13 @@ import coil.request.ImageRequest
 import java.text.NumberFormat
 import java.util.*
 
+fun nameConvert(name: List<String>): String {
+    return name[0]
+}
+
+fun capitalConvert(capital: List<String>): String {
+    return capital[0]
+}
 fun languageConvert(languages: List<Language>): String {
         return languages.joinToString { it.name }
     }
