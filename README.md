@@ -11,18 +11,18 @@ The CountriesApp provides the following features:
 
 ## Installation
 
-To use the CountriesApp, follow these steps:
-
-1. Download the APK file from the `app/release` directory.
-2. Install the APK on your Android device.
+To install the application, download the APK file from the [Release](https://github.com/nintenfox/CountriesApp/tree/main/app/release) section and install it on your Android device.
 
 ## Usage
 
 To use the CountriesApp, follow these steps:
 
 1. Open the app on your Android device.
+![Screenshot 1](https://github.com/nintenfox/CountriesApp/blob/main/screenshots/screenshot_start.png)
 2. Enter the name of the country you want to search for in the search bar and press the search button.
 3. The app will display information about the selected country.
+![Screenshot 2](https://github.com/nintenfox/CountriesApp/blob/main/screenshots/screenshot_result.png)
+![Screenshot 3](https://github.com/nintenfox/CountriesApp/blob/main/screenshots/screenshot_result_translation_search.png)
 
 ## Dependencies
 
