@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 interface RestCountriesApiTranslated {
     @GET("translation/{translation}")
-    suspend fun getCountryByTranslation(@Path("translation") cityName: String): List<Country>
+    suspend fun getCountryByTranslation(@Path("translation") countryName: String): List<Country>
 }
 
 var retrofitRus = Retrofit.Builder()
