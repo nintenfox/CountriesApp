@@ -1,27 +1,41 @@
 # CountriesApp
 
-CountriesApp is a simple web app that allows users to search for countries and view basic information about them. The app is built using React and the REST Countries API.
+The CountriesApp is a simple Android application that allows users to view information about various countries around the world. This application is built using Kotlin and utilizes the [REST Countries API](https://restcountries.com/) to fetch country data.
+
+## Features
+
+The CountriesApp provides the following features:
+
+- A search functionality that allows users to search for countries by name.
+- A country detail page that provides more detailed information about a selected country, including its flag, capital city, population, currency, language, and borders.
 
 ## Installation
 
-To use the app, you can download the APK file from the `app/release` folder of the GitHub repository [here](https://github.com/nintenfox/CountriesApp/tree/master/app/release). Once you have the APK file, you can install it on your Android device by following these steps:
+To use the CountriesApp, follow these steps:
 
-1. Open the "Settings" app on your Android device.
-2. Scroll down and select "Security".
-3. Enable the "Unknown sources" option.
-4. Open the file manager app on your Android device.
-5. Navigate to the directory where you saved the APK file.
-6. Tap on the APK file to start the installation process.
-7. Follow the on-screen instructions to complete the installation.
+1. Download the APK file from the `app/release` directory.
+2. Install the APK on your Android device.
 
 ## Usage
 
-To use the app, simply open it on your Android device. Enter a search query in the search bar at the top of the screen to search for a country. The app should display information about the country that matches your search query, including its flag, capital, population, and more.
+To use the CountriesApp, follow these steps:
+
+1. Open the app on your Android device.
+2. Enter the name of the country you want to search for in the search bar and press the search button.
+3. The app will display information about the selected country.
+
+## Dependencies
+
+The CountriesApp relies on the following dependencies:
+
+- [Kotlin](https://kotlinlang.org/)
+- [Retrofit](https://square.github.io/retrofit/)
+- [Gson](https://github.com/google/gson)
 
 ## Contributing
 
-Contributions to the project are welcome! If you find a bug or have a feature request, please open an issue on the GitHub repository. If you'd like to contribute code, please fork the repository and submit a pull request.
+Contributions to the CountriesApp are welcome! If you would like to contribute, please fork the repository and create a pull request.
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for more information.
+The CountriesApp is licensed under the [MIT License](https://github.com/nintenfox/CountriesApp/blob/main/LICENSE).
